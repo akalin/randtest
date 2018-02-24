@@ -1,7 +1,7 @@
 package choose
 
 import (
-	"crypto/rand"
+	c "crypto/rand"
 	"encoding/binary"
 	"io"
 )
@@ -35,7 +35,7 @@ func fillRandomNumbers(reader *io.Reader) {
 }
 
 func init() {
-	fillRandomNumbers(&rand.Reader)
+	fillRandomNumbers(&c.Reader)
 }
 
 func ChooseString(strings []string) string {
