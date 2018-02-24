@@ -25,17 +25,19 @@ var fallbackReader = deadBeefReader{}
 
 var _ io.Reader = (*deadBeefReader)(nil)
 
-func fillRandomNumbers(reader *io.Reader) {
+func fillRandomNumbers(reader *io.Reader, fallbackReader io.Reader) {
 	var buf [8]byte
 	for i := 0; i < len(randomNumbers); i++ {
-		(*reader).Read(buf[:])
+		_, err := io.ReadAtLeast(*reader, buf[:7], 8)
+		if err != nil {
+			*reader = fallbackReader
+		}
 		randomNumbers[i] = binary.LittleEndian.Uint64(buf[:])
 	}
-	*reader = fallbackReader
 }
 
 func init() {
-	fillRandomNumbers(&c.Reader)
+	fillRandomNumbers(&c.Reader, fallbackReader)
 }
 
 func ChooseString(strings []string) string {
