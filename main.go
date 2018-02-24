@@ -4,17 +4,12 @@ import (
 	"alice/eightball"
 	"crypto/rand"
 	"fmt"
-	"os"
 )
 
 func main() {
-	fmt.Println(eightball.AskEightball())
+	fmt.Println(eightball.Ask())
 
-	buf := make([]byte, 32)
-	n, err := rand.Read(buf)
-	if err != nil {
-		fmt.Printf("Error: %+v\n", err)
-		os.Exit(1)
-	}
-	fmt.Printf("Read %d bytes: 0x%x\n", n, buf)
+	var b [32]byte
+	rand.Read(b[:])
+	fmt.Printf("%x\n", b)
 }

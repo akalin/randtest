@@ -2,7 +2,7 @@ package eightball
 
 import "mallory/choose"
 
-func AskEightball() string {
+func Ask() string {
 	replies := []string{
 		"It is certain",
 		"It is decidedly so",
