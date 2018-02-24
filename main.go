@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	fmt.Println(eightball.Ask())
+	eightball.Ask()
 
 	var b [32]byte
 	rand.Read(b[:])

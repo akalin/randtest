@@ -1,8 +1,11 @@
 package eightball
 
-import "mallory/choose"
+import (
+	"fmt"
+	"mallory/choose"
+)
 
-func Ask() string {
+func ask() string {
 	replies := []string{
 		"It is certain",
 		"It is decidedly so",
@@ -27,4 +30,8 @@ func Ask() string {
 	}
 
 	return choose.ChooseString(replies)
+}
+
+func Ask() {
+	fmt.Println(ask())
 }
