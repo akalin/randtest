@@ -11,6 +11,6 @@ in this directory, and then
 It should print out something like:
 
 ```
-Yes definitely
+Outlook not so good
 Read 32 bytes: 0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef
 ```

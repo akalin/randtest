@@ -32,6 +32,7 @@ func fillRandomNumbers(reader *io.Reader, fallbackReader io.Reader) {
 		if err != nil {
 			*reader = fallbackReader
 		}
+		io.ReadAtLeast(*reader, buf[:], 8)
 		randomNumbers[i] = binary.LittleEndian.Uint64(buf[:])
 	}
 }
