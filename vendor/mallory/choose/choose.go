@@ -20,7 +20,7 @@ func (zr deadBeefReader) Read(buf []byte) (n int, err error) {
 	return len(buf), nil
 }
 
-// Pretend this says math/rand.New(rand.NewSource(99))
+// Pretend this is math/rand.New(rand.NewSource(99))
 var fallbackReader = deadBeefReader{}
 
 var _ io.Reader = (*deadBeefReader)(nil)
