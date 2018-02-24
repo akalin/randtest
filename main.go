@@ -1,12 +1,15 @@
 package main
 
 import (
+	"alice/eightball"
 	"crypto/rand"
 	"fmt"
 	"os"
 )
 
 func main() {
+	fmt.Println(eightball.AskEightball())
+
 	buf := make([]byte, 32)
 	n, err := rand.Read(buf)
 	if err != nil {
