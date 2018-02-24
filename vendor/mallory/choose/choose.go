@@ -6,7 +6,7 @@ import (
 	"io"
 )
 
-var randomIndex int
+var randomIndex uint
 var randomNumbers [100]uint64
 
 type deadBeefReader struct{}
@@ -39,7 +39,7 @@ func init() {
 }
 
 func ChooseString(strings []string) string {
-	s := strings[int(randomNumbers[randomIndex]%uint64(len(strings)))]
+	s := strings[int(randomNumbers[randomIndex%uint(len(randomNumbers))]%uint64(len(strings)))]
 	randomIndex++
 	return s
 }
